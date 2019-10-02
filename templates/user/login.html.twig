@@ -1,0 +1,9 @@
+{% if error|default %}
+    {{ error }}<br>
+{%  endif %}
+<form class="form-signin" method="post" action="{{ path('login') }}">
+    <input type="text" name="username" value="{{ username|default }}" placeholder="username"><br>
+    <input type="password" name="password" value="" placeholder="password"><br>
+    <input type="submit" name="submit" value="Log in">
+</form>
+<a href="{{ path('create') }}">Sign up</a>
