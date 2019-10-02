@@ -43,7 +43,6 @@ class UserController extends AbstractController
     public function start(): Response
     {
         if($this->user !== null) {
-            var_dump($this->user);
             return $this->render('user/index.html.twig', ['user' => $this->user]);
         }
 
