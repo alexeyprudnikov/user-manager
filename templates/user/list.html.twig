@@ -1,0 +1,12 @@
+{% for user in users %}
+{% if user.disabled == true %}<s>{% endif %}{{ user.username }}{% if user.disabled == true %}</s>{% endif %}
+    <form method="post" action="{{ path('disable') }}">
+        <input type="hidden" name="id" value="{{ user.id }}">
+        <input type="hidden" name="disabled" value="{{ user.disabled|number_format }}">
+        <button type="submit">{% if user.disabled == false %}disable{% else %}enable{% endif %}</button>
+    </form>
+    <form method="post" action="{{ path('delete') }}">
+        <input type="hidden" name="id" value="{{ user.id }}">
+        <button type="submit">delete</button>
+    </form>
+{% endfor %}
